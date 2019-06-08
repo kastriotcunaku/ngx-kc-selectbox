@@ -1,24 +1,63 @@
-# NgxSelectbox
+# ngx-kc-selectbox
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
+DEMO: https://kastriotcunaku.github.io/ngx-kc-selectbox/
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name --project ngx-selectbox` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-selectbox`.
-> Note: Don't forget to add `--project ngx-selectbox` or else it will be added to the default project in your `angular.json` file. 
+- Modern UI
+- Easy to install and use
+- Use your existing form elements, just wrap them with `<ngx-selectbox>` tag.
+- Included search field
 
-## Build
+## Dependencies
 
-Run `ng build ngx-selectbox` to build the project. The build artifacts will be stored in the `dist/` directory.
+| ngx-kc-selectbox | Angular |
+| ---------------- | ------- |
+| 1.0.0            | 5.x     |
 
-## Publishing
+## Install
 
-After building your library with `ng build ngx-selectbox`, go to the dist folder `cd dist/ngx-selectbox` and run `npm publish`.
+```bash
+npm install ngx-kc-selectbox --save
+```
 
-## Running unit tests
+## Setup
+Add NgxSelectboxModule to app NgModule
 
-Run `ng test ngx-selectbox` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```typescript
+import { CommonModule } from '@angular/common';
 
-## Further help
+import { NgxSelectboxModule } from 'ngx-selectbox';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@NgModule({
+  imports: [
+    CommonModule,
+    NgxSelectboxModule // NgxSelectboxModule added
+  ],
+  bootstrap: [App],
+  declarations: [App]
+})
+class AppModule {}
+```
+
+## Use
+
+```html
+<ngx-selectbox [placeholder]="'Sort by'" [hideSearch]="true">
+  <div class="items">
+    <label class="custom-input">Name
+      <input type="radio" name="sort" value="Name" [(ngModel)]="sort">
+      <span class="checkmark"></span>
+    </label>
+    <label class="custom-input">Type
+      <input type="radio" name="sort" value="Type" [(ngModel)]="sort">
+      <span class="checkmark"></span>
+    </label>
+    <label class="custom-input">Size
+      <input type="radio" name="sort" value="Size" [(ngModel)]="sort">
+      <span class="checkmark"></span>
+    </label>
+  </div>
+</ngx-selectbox>
+```
+More examples can be found [here](https://kastriotcunaku.github.io/ngx-kc-selectbox/)
