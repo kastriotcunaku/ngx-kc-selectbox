@@ -5,23 +5,44 @@
     <p class="lead">
       Angular component for select box with checkboxes and radio buttons. 
     </p>
+    <div class="list-group list-group-horizontal-md d-flex justify-content-center">
+      <a href="https://github.com/kastriotcunaku/ngx-kc-selectbox" class="list-group-item">Github <img src="https://github.githubassets.com/pinned-octocat.svg" width="16" height="16" alt="Github"></a>
+      <a href="https://twitter.com/kastriotcunaku" class="list-group-item">Follow me <img src="https://abs.twimg.com/icons/apple-touch-icon-192x192.png" width="16" height="16" alt="Follow me on Twitter"></a>
+      <a href="https://www.paypal.me/kastriotcunaku/5" class="list-group-item">Donate <img src="https://www.paypalobjects.com/webstatic/icon/pp32.png" width="16" height="16" alt="Donate via PayPal"></a>
+    </div>
   </div>
   <div class="row">
-    <div class="col">
-      <ngx-selectbox [placeholder]="'Sort by'">
+    <div class="col-md-6">
+      <ngx-selectbox [placeholder]="'Select country'">
         <div class="items">
-          <label class="custom-input">Ascending
-            <input type="radio" name="set_3" value="ASC">
-            <span class="checkmark"></span>
-          </label>
-          <label class="custom-input">Descending
-            <input type="radio" name="set_3" value="DESC">
+          <label class="custom-input" *ngFor="let country of countryList">{{ country.name }}
+            <input type="checkbox" [name]="country.code" [value]="country.code" [(ngModel)]="country.checked"/>
             <span class="checkmark"></span>
           </label>
         </div>
       </ngx-selectbox>
       <pre class="card mt-4"><code [highlight]="code1"></code></pre>
+      <p *ngIf="selectedCountries && selectedCountries.length > 0">Selected items: {{ selectedCountries?.join(', ') }}</p>
     </div>
-    <div class="col"></div>
+    <div class="col-md-6">
+      <ngx-selectbox [placeholder]="'Sort by'" [hideSearch]="true">
+        <div class="items">
+          <label class="custom-input">Name
+            <input type="radio" name="sort" value="Name" [(ngModel)]="sort">
+            <span class="checkmark"></span>
+          </label>
+          <label class="custom-input">Type
+            <input type="radio" name="sort" value="Type" [(ngModel)]="sort">
+            <span class="checkmark"></span>
+          </label>
+          <label class="custom-input">Size
+            <input type="radio" name="sort" value="Size" [(ngModel)]="sort">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </ngx-selectbox>
+      <pre class="card mt-4"><code [highlight]="code2"></code></pre>
+      <p *ngIf="sort">Selected item: {{ sort }}</p>
+    </div>
   </div>
 </div>

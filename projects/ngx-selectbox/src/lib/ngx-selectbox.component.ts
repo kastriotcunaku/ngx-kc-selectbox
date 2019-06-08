@@ -2,19 +2,18 @@ import { Component, OnInit, Input, ViewChild, ElementRef, HostListener } from '@
 import { template, style } from './ngx-selectbox.component.html';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'ngx-selectbox',
   template: template + '',
   styles: [style + '']
 })
 export class NgxSelectboxComponent implements OnInit {
-
-  open = false;
-
   // tslint:disable-next-line:no-input-rename
   @Input('placeholder') placeholder: string;
   // tslint:disable-next-line:no-input-rename
   @Input('hideSearch') hideSearch: string;
 
+  open = false;
   label: string;
   searchQuery: string;
 
@@ -24,7 +23,7 @@ export class NgxSelectboxComponent implements OnInit {
   @HostListener('document:click', ['$event'])
   clickout(event) {
     if (!this.eRef.nativeElement.contains(event.target)) {
-      this.open = false;
+      this.toggle(false);
     } else {
       this.updateLabel();
     }
@@ -48,9 +47,15 @@ export class NgxSelectboxComponent implements OnInit {
     }
   }
 
+  toggle(status?: boolean) {
+    this.open = typeof(status) !== 'undefined' ? status : !this.open;
+    this.searchQuery = null;
+    this.search();
+  }
+
   search() {
     Array.prototype.slice.call(this.items.nativeElement.children[0].children).forEach(element => {
-      if (element.innerText.toLowerCase().indexOf(this.searchQuery.toLowerCase()) === -1) {
+      if (element.innerText.toLowerCase().indexOf(this.searchQuery ? this.searchQuery.toLowerCase() : '') === -1) {
         element.style.display = 'none';
       } else {
         element.style.display = 'block';

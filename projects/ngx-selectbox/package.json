@@ -2,8 +2,8 @@
   "name": "ngx-selectbox",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/common": "^8.0.0",
-    "@angular/core": "^8.0.0",
-    "@angular/forms": "~8.0.0"
+    "@angular/common": "^5.0.0",
+    "@angular/core": "^5.0.0",
+    "@angular/forms": "~5.0.0"
   }
 }

@@ -4,10 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NgxSelectboxModule } from 'ngx-selectbox';
 import { HighlightModule } from 'ngx-highlightjs';
- 
+
 import xml from 'highlight.js/lib/languages/xml';
 import scss from 'highlight.js/lib/languages/scss';
 import typescript from 'highlight.js/lib/languages/typescript';
+import { FormsModule } from '@angular/forms';
 
 export function hljsLanguages() {
   return [
@@ -24,6 +25,7 @@ export function hljsLanguages() {
   imports: [
     BrowserModule,
     NgxSelectboxModule,
+    FormsModule,
     HighlightModule.forRoot({
       languages: hljsLanguages
     })
