@@ -1,6 +1,26 @@
 {
-  "name": "ngx-selectbox",
-  "version": "1.0.0",
+  "name": "ngx-kc-selectbox",
+  "version": "1.0.1",
+  "description":"Angular component for select box with checkboxes and radio buttons.",
+  "author": "Kastriot Cunaku (kastriotcunaku@gmail.com)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kastriotcunaku/ngx-kc-selectbox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kastriotcunaku/ngx-kc-selectbox/issues"
+  },
+  "homepage": "https://kastriotcunaku.github.io/ngx-kc-selectbox/",
+  "keywords": [
+    "select",
+    "select-box",
+    "angular",
+    "javascript",
+    "typescript",
+    "typeahead",
+    "component"
+  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^5.0.0",
     "@angular/core": "^5.0.0",
